@@ -1,0 +1,46 @@
+---
+title: "Practice with Data Import"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+
+getwd()
+
+litters_data = read_csv(file = "/Users/rogercabrera/Gay_Coded/data_import_practice/data_import_examples/FAS_litters.csv")
+```
+
+Now let's start exploring and cleaning the data.
+
+```{r}
+# this gives you the column names for your imported data
+names(litters_data)
+
+litters_data = janitor::clean_names(litters_data)
+
+#now they're lower case and snake case 
+names(litters_data)
+```
+
+```{r}
+doggy_data = read_csv(file = "/Users/rogercabrera/Gay_Coded/data_import_practice/data_import_examples/FAS_pups.csv")
+
+doggy_data = janitor::clean_names(doggy_data)
+```
+
+
+```{r}
+doggy_data
+
+head(litters_data, 5)
+
+
+tail(litters_data, 5)
+
+
+skimr::skim(litters_data)
+
+```
+
+
